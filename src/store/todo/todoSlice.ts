@@ -11,7 +11,7 @@ interface TodoState {
 }
 
 const initialState: TodoState = {
-  todos: [{ id: Date.now(), text: 'Wash Clothes' }],
+  todos: [],
   selectedTodo: null,
 };
 

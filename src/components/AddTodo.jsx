@@ -1,17 +1,18 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTodo, updateTodo, handleEditTodo } from '../store/todo/todoSlice';
+// import { RootState } from '../store/store';
 
 const AddTodo = () => {
 	const [input, setInput] = React.useState('');
-	const selected = useSelector((state) => state.selectedTodo);
+	const selected = useSelector((state) => state.todo.selectedTodo);
 	const dispatch = useDispatch();
 
 	const addTodoHandler = (e) => {
 		e.preventDefault();
 		if (selected) {
-			dispatch(updateTodo({id: selected.id, text:input}));
-            dispatch(handleEditTodo(null));
+			dispatch(updateTodo({ id: selected.id, text: input }));
+			dispatch(handleEditTodo(null));
 		} else dispatch(addTodo(input));
 		setInput('');
 	};
